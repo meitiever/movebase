@@ -1,0 +1,38 @@
+void messageCb(const geometry_msgs::Twist& msg)
+{
+  if (msg.angular.z == 0 && msg.linear.x == 0)
+  {
+    motorDriver.stop();
+  }
+  else
+  {
+    if (msg.angular.z < 0)
+    {
+      int speed = (int)(msg.angular.z * -100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goRight();
+    }
+    else if (msg.angular.z > 0)
+    {
+      int speed = (int)(msg.angular.z * 100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goLeft();
+    }
+    else if (msg.linear.x < 0)
+    {
+      int speed = (int)(msg.linear.x * -100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goBackward();
+    }
+    else if (msg.linear.x > 0)
+    {
+      int speed = (int)(msg.linear.x * 100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goForward();
+    }
+  }
+}

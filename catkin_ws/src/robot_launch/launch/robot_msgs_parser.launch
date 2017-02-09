@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<launch>
+  <node pkg="robot_launch" type="str2imu.py" name="robot_msgs_imu" respawn="false" ns="robot" output="screen"/>
+  <node pkg="robot_launch" type="str2odo" name="robot_msgs_odo" respawn="false" ns="robot" output="screen"/>
+  <!--node pkg="image_proc" type="image_proc" name="image_proc" respawn="true" ns="/camera"/-->
+</launch>

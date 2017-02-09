@@ -1,0 +1,71 @@
+void messageCb(const geometry_msgs::Twist& msg)
+{
+  if (msg.angular.z == 0 && msg.linear.x == 0)
+  {
+    motorDriver.stop();
+  }
+  else
+  {
+    if (msg.angular.z < 0)
+    {
+      int speed = (int)(msg.angular.z * -100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goRight();
+    }
+    else if (msg.angular.z > 0)
+    {
+      int speed = (int)(msg.angular.z * 100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goLeft();
+    }
+    else if (msg.linear.x < 0)
+    {
+      int speed = (int)(msg.linear.x * -100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goBackward();
+    }
+    else if (msg.linear.x > 0)
+    {
+      int speed = (int)(msg.linear.x * 100);
+      motorDriver.setSpeed(speed, MOTORA);
+      motorDriver.setSpeed(speed, MOTORB);
+      motorDriver.goForward();
+    }
+  }
+}
+
+void messageCb(const geometry_msgs::Twist& msg)
+{
+//  float motor_gain = 1;
+//  float wheel_rad = 0.033;
+//  float wheel_sep = 0.1;
+//  float gear_ratio = 7.5*motor_gain;
+//  int max_rpm = 130;
+//  int max_pwm = 255;
+//  float x = msg.linear.x;
+//  float w = msg.angular.z;
+//  if (x == 0) {
+//    stop();
+//    return;
+//  }
+//  float vel_left = (x-w*wheel_sep/2)/wheel_rad*gear_ratio;
+//  float vel_right = (x+w*wheel_sep/2)/wheel_rad*gear_ratio;
+//  
+//  float pwm_left = vel_left*max_pwm/max_rpm;
+//  float pwm_right = vel_right*max_pwm/max_rpm;
+//  
+//  if (pwm_left < 0) {
+//    pwm_left = 0;
+//  }
+//  pwm_left = max(min(pwm_left,255),0);
+//
+//  if (pwm_right < 0) {
+//    pwm_right = 0;
+//  }
+//  pwm_right = max(min(pwm_right,255),0);
+//  advance (pwm_left, pwm_right);
+}
+
