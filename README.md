@@ -16,4 +16,6 @@ best practice:
 1. Do not connect IMU to arduino. because the IMU module require a lot of resource and high speed connection. a lot of third party arduino and original arduino board unable to do it. i speed a lot of time on that.  
 2. Do not buy an IMU module you do not know very well or try to understand IMU raw data or calibrate IMU youself unless you have time and a lot of money. this is a very good library for imu - https://github.com/richardstechnotes/RTIMULib2.git (it recommanded some affordable IMU chip and you can buy it from amazon or ebay)  
 3. make you hardware as simple as possible, it is not worth to speed lots of time and money on it.  
+Yes, you will need to have root privileges (or use 'sudo') to access the GPIO pins via sysfs.
+or copy rpi.gpio from ubilinux http://ubilinux.com/ubilinux/pool/main/r/rpi-gpio/  
 
