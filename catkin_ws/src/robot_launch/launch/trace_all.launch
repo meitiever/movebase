@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 
 <launch>
-  <include file="$(find raspicam)/launch/raspicam.launch"/>
   <include file="$(find robot_launch)/launch/tag_detection.launch"/>
-  <include file="$(find robot_launch)/launch/arduino_control.launch"/>
-  <include file="$(find robot_launch)/launch/arduino_sensor.launch"/>
-  <include file="$(find robot_launch)/launch/robot_msgs_parser.launch"/>
-  <include file="$(find robot_localization)/launch/ekf_vel_imu.launch"/>
+  <include file="$(find robot_launch)/launch/roboclaw_control.launch"/>
   <include file="$(find robot_control)/launch/robot_control.launch"/>
 <!--
   <include file="$(find robot_launch)/launch/robot_sensor.launch"/>

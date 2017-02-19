@@ -13,10 +13,10 @@ from std_msgs.msg import (
     Int16,
 )
 
-from apriltags_ros.msg import (
-    AprilTagDetectionArray,
-    AprilTagDetection,
-)
+#from apriltags_ros.msg import (
+#    AprilTagDetectionArray,
+#    AprilTagDetection,
+#)
 
 from nav_msgs.msg import Odometry
 
@@ -62,11 +62,10 @@ class ROSInterface(object):
 
         # ROS publishers and subscribers
         #self._dc = rospy.Publisher("/robot/dc", String, queue_size=10)
-        self._servo = rospy.Publisher("/servo", Int16, queue_size=10)
+        #self._servo = rospy.Publisher("/servo", Int16, queue_size=10)
         self._twist = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
-        rospy.Subscriber("/camera/tag_detections",AprilTagDetectionArray,self._tag_pose_callback)
-        rospy.Subscriber("/odometry/filtered", Odometry, self._fusion_callback)
-
+        #rospy.Subscriber("/camera/tag_detections",AprilTagDetectionArray,self._tag_pose_callback)
+        #rospy.Subscriber("/odometry/filtered", Odometry, self._fusion_callback)
 
     def _tag_pose_callback(self,posearray):
         """

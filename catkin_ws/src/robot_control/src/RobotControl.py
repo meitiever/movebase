@@ -60,27 +60,26 @@ class RobotControl(object):
             (not used in simulation)
         """
 
-        # TODO for student: Comment this when running on the robot 
+        # Comment this when running on the robot 
         # self.robot_sim = RobotSim(world_map, occupancy_map, pos_init, pos_goal,
         #                          max_speed, max_omega, x_spacing, y_spacing)
-        # TODO for student: Use this when transferring code to robot
+        # Use this when transferring code to robot
         # Handles all the ROS related items
         self.ros_interface = ROSInterface(t_cam_to_body)
 
-        # YOUR CODE AFTER THIS
-        
-        # Uncomment as completed
         #self.kalman_filter = KalmanFilter(world_map)
-        self.diff_drive_controller = DiffDriveController(max_speed, max_omega)
+        #self.diff_drive_controller = DiffDriveController(max_speed, max_omega)
 
     def process_measurements(self):
         """ 
-        YOUR CODE HERE
         Main loop of the robot - where all measurements, control, and esimtaiton
         are done. This function is called at 60Hz
+
         """
-        
-        # TODO for student: Use this when transferring code to robot
+        #: Comment this line for tracking
+        return
+
+        #: Use this when transferring code to robot
         goal_pos = self.ros_interface.get_measurements()
         fusion = self.ros_interface.get_fusion()
         #vel_meas = self.ros_interface.get_vel()
@@ -131,7 +130,7 @@ def main(args):
                                 max_vel, max_omega, x_spacing, y_spacing,
                                 t_cam_to_body)
 
-    # TODO for student: Comment this when running on the robot 
+    # TODO: Comment this when running on the robot 
     # Run the simulation
     # while not robotControl.robot_sim.done and plt.get_fignums():
     #    robotControl.process_measurements()
@@ -140,7 +139,7 @@ def main(args):
     #plt.ioff()
     #plt.show()
 
-    # TODO for student: Use this to run the interface on the robot
+    # TODO: Use this to run the interface on the robot
     # Call process_measurements at 60Hz
     
     r = rospy.Rate(frequence)
